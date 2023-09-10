@@ -8,8 +8,8 @@ class {{ STUB_MODEL_NAME }}ServiceImp implements {{ STUB_MODEL_NAME }}Service
 {
     protected ${{ STUB_CAMELCASE_MODEL_NAME }}Repository;
 
-    public function __construct({{ STUB_MODEL_NAME }}Repository ${{ STUB_CAMELCASE_MODEL_NAME }})
+    public function __construct({{ STUB_MODEL_NAME }}Repository ${{ STUB_CAMELCASE_MODEL_NAME }}Repository)
     {
-        $this->{{ STUB_CAMELCASE_MODEL_NAME }}Repository = ${{ STUB_CAMELCASE_MODEL_NAME }};
+        $this->{{ STUB_CAMELCASE_MODEL_NAME }}Repository = ${{ STUB_CAMELCASE_MODEL_NAME }}Repository;
     }
 }
