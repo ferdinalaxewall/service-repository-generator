@@ -1,6 +1,6 @@
 {
     "name": "ferdinalaxewall/service-repository-generator",
-    "description": "Laravel Service and Repository Stub Generator",
+    "description": "Laravel Service and Repository Generator",
     "license": "MIT",
     "type": "library",
     "autoload": {
