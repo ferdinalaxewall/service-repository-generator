@@ -43,10 +43,10 @@ php artisan make:service-repository {model}
 ```
 
 ### Generate Service Only Class with Interface
-- Comming Soon
+- Coming Soon
 
 ### Generate Repository Only Class with Interface
-- Comming Soon
+- Coming Soon
 
 ## Contributors
 - [Ferdinalaxewall](https://github.com/ferdinalaxewall)
