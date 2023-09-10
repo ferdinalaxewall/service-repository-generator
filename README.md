@@ -24,15 +24,15 @@ composer dump-autoload && php artisan optimize:clear
 ## Default Service Repository Directory Structure based on Model Name
 ```php
 ├── app
-├── Services          
-|    ├── Model          
-|    |   ├── ModelService.php
-|    |   ├── ModelServiceImp.php
-├── Repositories          
-|    ├── Model          
-|    |   ├── ModelRepository.php
-|    |   ├── ModelRepositoryImp.php 
-|    └── BaseRepository.php
+|   ├── Services          
+|   |    ├── Model          
+|   |    |   ├── ModelService.php
+|   |    |   ├── ModelServiceImp.php
+|   ├── Repositories          
+|   |    ├── Model          
+|   |    |   ├── ModelRepository.php
+|   |    |   ├── ModelRepositoryImp.php 
+|   |    └── BaseRepository.php
 ```
 
 ## Usage Guide
