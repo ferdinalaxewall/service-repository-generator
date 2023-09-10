@@ -1,0 +1,26 @@
+{
+    "name": "ferdinalaxewall/service-repository-generator",
+    "description": "Laravel Service and Repository Stub Generator",
+    "license": "MIT",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Ferdinalaxewall\\ServiceRepositoryGenerator\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ferdinalaxewall",
+            "email": "axeferdinal@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Ferdinalaxewall\\ServiceRepositoryGenerator\\ServiceRepositoryGeneratorProvider"
+            ]
+        }
+    }
+}

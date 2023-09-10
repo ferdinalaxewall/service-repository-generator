@@ -1,0 +1,8 @@
+<?php
+
+namespace App\{{ STUB_BASE_NAME }}\{{ STUB_MODEL_NAME }};
+
+interface {{ STUB_MODEL_NAME }}Repository
+{
+
+}

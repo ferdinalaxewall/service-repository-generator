@@ -1,0 +1,16 @@
+<?php
+
+namespace App\{{ STUB_BASE_NAME }}\{{ STUB_MODEL_NAME }};
+
+use App\{{ STUB_BASE_NAME }}\BaseRepository;
+use App\Models\{{ STUB_MODEL_NAME }};
+
+class {{ STUB_MODEL_NAME }}RepositoryImp extends BaseRepository implements {{ STUB_MODEL_NAME }}Repository
+{
+    protected $model;
+
+    public function __construct({{ STUB_MODEL_NAME }} $model)
+    {
+        $this->model = $model;
+    }
+}

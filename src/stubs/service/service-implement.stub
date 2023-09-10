@@ -1,0 +1,8 @@
+<?php
+
+namespace App\{{ STUB_BASE_NAME }}\{{ STUB_MODEL_NAME }};
+
+class {{ STUB_MODEL_NAME }}ServiceImp implements {{ STUB_MODEL_NAME }}Service
+{
+    
+}
