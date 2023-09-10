@@ -3,6 +3,7 @@
     "description": "Laravel Service and Repository Generator",
     "license": "MIT",
     "type": "library",
+    "version": "1.0.0",
     "autoload": {
         "psr-4": {
             "Ferdinalaxewall\\ServiceRepositoryGenerator\\": "src/"
@@ -14,8 +15,11 @@
             "email": "axeferdinal@gmail.com"
         }
     ],
-    "minimum-stability": "stable",
-    "require": {},
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": "^5.5"
+    },
     "extra": {
         "laravel": {
             "providers": [
