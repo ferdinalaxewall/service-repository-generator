@@ -34,7 +34,7 @@ class RepositoryGenerator extends FileGenerator
         if(!file_exists($baseRepositoryFilePath)){
             $this->makeDirectory(dirname($baseRepositoryFilePath));
             $this->createFile($baseRepositoryFilePath, $this->getStubContents(__DIR__ . '/../stubs/repository/base-repository.stub'));
-            ConsoleLog::info("File : {$baseRepositoryFilePath} created");
+            ConsoleLog::info("File: {$baseRepositoryFilePath} created");
         }
     }
 }
