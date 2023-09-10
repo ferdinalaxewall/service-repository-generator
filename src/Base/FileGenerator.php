@@ -3,7 +3,6 @@
 namespace Ferdinalaxewall\ServiceRepositoryGenerator\Base;
 
 use Illuminate\Support\Pluralizer;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Filesystem\Filesystem;
 use Ferdinalaxewall\ServiceRepositoryGenerator\Helpers\ConsoleLog;
 use Ferdinalaxewall\ServiceRepositoryGenerator\Exceptions\ModelNotFoundException;

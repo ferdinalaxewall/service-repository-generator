@@ -3,7 +3,6 @@
 namespace Ferdinalaxewall\ServiceRepositoryGenerator\Console\Commands;
 
 use Illuminate\Console\Command;
-use Ferdinalaxewall\ServiceRepositoryGenerator\Define;
 use Ferdinalaxewall\ServiceRepositoryGenerator\Facades\ServiceRepositoryGenerator;
 
 class ServiceRepositoryGeneratorCommand extends Command
@@ -25,9 +24,9 @@ class ServiceRepositoryGeneratorCommand extends Command
     /**
      * Execute the console command.
      *
-     * @return int
+     * @return void
      */
-    public function handle()
+    public function handle(): void
     {
         try {
             if(file_exists(app_path('Models/' . $this->argument('model') . '.php'))){
