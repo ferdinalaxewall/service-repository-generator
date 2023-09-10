@@ -8,11 +8,21 @@ use Ferdinalaxewall\ServiceRepositoryGenerator\Base\FileGenerator;
 
 class RepositoryGenerator extends FileGenerator
 {
+    /**
+     * get the path of stubs.
+     *
+     * @return string
+     */
     public function getStubPath(): string
     {
         return __DIR__ . '/../stubs/repository/'. ($this->isImplementClass ? 'repository-implement-with-model' : 'repository-interface') .'.stub';
     }
 
+    /**
+     * get the variables of stubs.
+     *
+     * @return array
+     */
     public function getStubVariables(): array
     {
         $className = $this->getSingularClassName($this->modelName);
@@ -23,12 +33,24 @@ class RepositoryGenerator extends FileGenerator
         ];
     }
 
+    /**
+     * get the file source path.
+     *
+     * @param bool $isImplementClass
+     *
+     * @return string
+     */
     public function getSourceFilePath($isImplementClass = false): string
     {
         return base_path(Define::REPOSITORY_PATH) .'/' .$this->getSingularClassName($this->modelName) .'/' .$this->getSingularClassName($this->modelName) . 'Repository'. ($isImplementClass ? 'Imp' : '') .'.php';
     }
 
-    public function generateBaseRepository()
+    /**
+     * generate the base repository with existing stubs.
+     *
+     * @return void
+     */
+    public function generateBaseRepository(): void
     {
         $baseRepositoryFilePath = base_path(Define::REPOSITORY_PATH) . Define::BASE_REPOSITORY_FILE_PATH;
         if(!file_exists($baseRepositoryFilePath)){
