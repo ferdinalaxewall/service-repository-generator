@@ -8,7 +8,12 @@ use Ferdinalaxewall\ServiceRepositoryGenerator\Console\Commands\ServiceRepositor
 
 class ServiceRepositoryGeneratorProvider extends ServiceProvider
 {
-    public function register()
+    /**
+     * register any application services.
+     *
+     * @return void
+     */
+    public function register(): void
     {
         $this->app->bind('service-repository-generator', function (){
             return new GeneratorHandler();
@@ -31,7 +36,12 @@ class ServiceRepositoryGeneratorProvider extends ServiceProvider
         }
     }
 
-    public function boot()
+    /**
+     * bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot(): void
     {
         if($this->app->runningInConsole()) {
             $this->commands([
@@ -39,5 +49,5 @@ class ServiceRepositoryGeneratorProvider extends ServiceProvider
             ]);
         }
     }
-    
+
 }
