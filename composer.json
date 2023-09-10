@@ -14,7 +14,7 @@
             "email": "axeferdinal@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "beta",
     "require": {},
     "extra": {
         "laravel": {
