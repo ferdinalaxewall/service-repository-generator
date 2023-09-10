@@ -2,7 +2,6 @@
 
 namespace Ferdinalaxewall\ServiceRepositoryGenerator\Handlers;
 
-use Illuminate\Support\Facades\Log;
 use Ferdinalaxewall\ServiceRepositoryGenerator\Define;
 use Ferdinalaxewall\ServiceRepositoryGenerator\Helpers\ConsoleLog;
 use Ferdinalaxewall\ServiceRepositoryGenerator\Functions\ServiceGenerator;
@@ -11,11 +10,20 @@ use Ferdinalaxewall\ServiceRepositoryGenerator\Exceptions\ModelNotFoundException
 
 class GeneratorHandler
 {
-    public function generateFromModel(string $modelName, string|array $generateFileType)
+    /**
+     * generate service repository action from existing model.
+     * when fails it'll return ModelNotFoundException
+     *
+     * @param string $modelName
+     * @param string|array $generateFileType
+     *
+     * @return void
+     */
+    public function generateFromModel(string $modelName, string|array $generateFileType): void
     {
         try {
             $generateFileType = is_array($generateFileType) ? $generateFileType : explode(',', $generateFileType);
-        
+
             foreach ($generateFileType as $fileType) {
                 $fileType = strtolower(trim($fileType));
                 if(in_array($fileType, Define::AVAILABLE_TYPE)){
