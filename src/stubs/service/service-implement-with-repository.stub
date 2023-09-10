@@ -2,7 +2,7 @@
 
 namespace App\{{ STUB_BASE_NAME }}\{{ STUB_MODEL_NAME }};
 
-use App\Repositories\{{ STUB_BASE_NAME }}\{{ STUB_MODEL_NAME }};
+use App\Repositories\{{ STUB_MODEL_NAME }}\{{ STUB_MODEL_NAME }}Repository;
 
 class {{ STUB_MODEL_NAME }}ServiceImp implements {{ STUB_MODEL_NAME }}Service
 {
