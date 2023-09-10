@@ -50,7 +50,7 @@ php artisan make:service-repository {model}
 
 ## Contributors
 - [Ferdinalaxewall](https://github.com/ferdinalaxewall)
-- [See All Contributors](https://github.com/dayCod/laravel-artisan-backup/contributors)
+- [See All Contributors](https://github.com/ferdinalaxewall/service-repository-generator/contributors)
 
 ## License
 This project is released under the [MIT](http://opensource.org/licenses/MIT) license.
