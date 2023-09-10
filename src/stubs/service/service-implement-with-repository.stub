@@ -6,8 +6,18 @@ use App\Repositories\{{ STUB_MODEL_NAME }}\{{ STUB_MODEL_NAME }}Repository;
 
 class {{ STUB_MODEL_NAME }}ServiceImp implements {{ STUB_MODEL_NAME }}Service
 {
+    /**
+     * create the variable of repository eloquent model instance.
+     *
+     * @var \App\Repositories\{{ STUB_MODEL_NAME }}\{{ STUB_MODEL_NAME }}Repository
+     */
     protected ${{ STUB_CAMELCASE_MODEL_NAME }}Repository;
 
+    /**
+     * create a new {{ STUB_MODEL_NAME }}ServiceImp instance.
+     *
+     * @return void
+     */
     public function __construct({{ STUB_MODEL_NAME }}Repository ${{ STUB_CAMELCASE_MODEL_NAME }}Repository)
     {
         $this->{{ STUB_CAMELCASE_MODEL_NAME }}Repository = ${{ STUB_CAMELCASE_MODEL_NAME }}Repository;

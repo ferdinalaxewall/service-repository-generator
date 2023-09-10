@@ -6,49 +6,120 @@ use Illuminate\Support\Collection;
 
 class BaseRepository
 {
-    protected $model; 
+    /**
+     * create the variable of repository eloquent model instance.
+     *
+     * @var \Illuminate\Database\Eloquent\Model
+     */
+    protected $model;
 
+    /**
+     * create a new repository eloquent model instance.
+     *
+     * @param \Illuminate\Database\Eloquent\Model $model
+     *
+     * @return void
+     */
     public function __construct($model)
     {
         $this->model = $model;
     }
 
-    public function findAll(string $sortColumn = 'created_at', string $sortBy = 'DESC')
+    /**
+     * display all model resources.
+     *
+     * @param string $sortColumn
+     * @param string $sortBy
+     *
+     * @return Collection|array
+     */
+    public function findAll(string $sortColumn = 'created_at', string $sortBy = 'DESC'): Collection|array
     {
         return $this->model->orderBy($sortColumn, $sortBy)->get();
     }
 
-    public function findOneById(int $id)
+    /**
+     * show the specific resource that related by unique key.
+     *
+     * @param int $id
+     *
+     * @return Collection|array
+     */
+    public function findOneById(int $id): Collection|array
     {
         return $this->model->where('id', $id)->first();
     }
 
-    public function findOneByUUID(string $uuid)
+    /**
+     * show the specific resource that related by unique key.
+     *
+     * @param string $uuid
+     *
+     * @return Collection|array
+     */
+    public function findOneByUUID(string $uuid): Collection|array
     {
         return $this->model->where('uuid', $uuid)->first();
     }
 
-    public function create(Collection|array $dto)
+    /**
+     * create eloquent model resources.
+     *
+     * @param Collection|array $dto
+     *
+     * @return Collection|array
+     */
+    public function create(Collection|array $dto): Collection|array
     {
         return $this->model->create($dto);
     }
 
-    public function updateById(int $id, Collection|array $dto)
+    /**
+     * update the specified resource that related by unique key.
+     *
+     * @param int $id
+     * @param Collection|array $dto
+     *
+     * @return bool
+     */
+    public function updateById(int $id, Collection|array $dto): bool
     {
         return $this->model->where('id', $id)->update($dto);
     }
-    
-    public function updateByUUID(string $uuid, Collection|array $dto)
+
+    /**
+     * update the specified resource that related by unique key.
+     *
+     * @param string $uuid
+     * @param Collection|array $dto
+     *
+     * @return bool
+     */
+    public function updateByUUID(string $uuid, Collection|array $dto): bool
     {
         return $this->model->where('uuid', $uuid)->update($dto);
     }
 
-    public function deleteById(int $id)
+    /**
+     * remove the specified resource that related by unique key.
+     *
+     * @param int $id
+     *
+     * @return void
+     */
+    public function deleteById(int $id): void
     {
         $this->model->where('id', $id)->delete();
     }
-    
-    public function deleteByUUID(string $uuid)
+
+    /**
+     * remove the specified resource that related by unique key.
+     *
+     * @param string $uuid
+     *
+     * @return void
+     */
+    public function deleteByUUID(string $uuid): void
     {
         $this->model->where('uuid', $uuid)->delete();
     }
