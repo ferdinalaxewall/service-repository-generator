@@ -7,8 +7,20 @@ use App\Models\{{ STUB_MODEL_NAME }};
 
 class {{ STUB_MODEL_NAME }}RepositoryImp extends BaseRepository implements {{ STUB_MODEL_NAME }}Repository
 {
+    /**
+     * create the variable of repository eloquent model instance.
+     *
+     * @var \Illuminate\Database\Eloquent\Model
+     */
     protected $model;
 
+    /**
+     * create a new repository eloquent model instance.
+     *
+     * @param \Illuminate\Database\Eloquent\Model $model
+     *
+     * @return void
+     */
     public function __construct({{ STUB_MODEL_NAME }} $model)
     {
         $this->model = $model;
