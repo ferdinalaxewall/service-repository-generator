@@ -1,5 +1,5 @@
 # Laravel Service Repository Generator
-Laravel Service Repository Generator is a Package for Generating Service and Repository Class based on Model
+Laravel Service Repository Generator is a Package for Generating Service and Repository Class based on Model or custom name
 
 ## Installation Guide
 ```bash
@@ -21,32 +21,55 @@ Last, for make sure this package installed correctly.
 composer dump-autoload && php artisan optimize:clear
 ```
 
-## Default Service Repository Directory Structure based on Model Name
+## Default Service Repository Directory Structure Based
 ```php
 ├── app
 |   ├── Services          
-|   |    ├── Model          
-|   |    |   ├── ModelService.php
-|   |    |   ├── ModelServiceImp.php
+|   |    ├── Entity          
+|   |    |   ├── EntityService.php
+|   |    |   ├── EntityServiceImp.php
 |   ├── Repositories          
-|   |    ├── Model          
-|   |    |   ├── ModelRepository.php
-|   |    |   ├── ModelRepositoryImp.php 
+|   |    ├── Entity          
+|   |    |   ├── EntityRepository.php
+|   |    |   ├── EntityRepositoryImp.php 
 |   |    └── BaseRepository.php
 ```
 
 ## Usage Guide
 
 ### Generate Service Repository Class with Interface
+Generate Service and Repository Class with construct the Model and Create Base Repository Class
 ```bash
 php artisan make:service-repository {model}
 ```
 
 ### Generate Service Only Class with Interface
-- Coming Soon
+Generate Service Class
+```bash
+php artisan make:service {service-name}
+```
 
 ### Generate Repository Only Class with Interface
-- Coming Soon
+- Generate Repository Class with construct the Model and Create Base Repository Class
+```bash
+php artisan make:repository {repository-name} {--model=}
+```
+
+_OR_
+
+- Generate Repository Class without construct the Model
+```bash
+php artisan make:repository {repository-name}
+```
+
+## Features
+- **Generate Service and Repository Class** with Implement Interface
+- **Generate Only Service Class** with Implement Interface
+- **Generate Only Repository Class** with Implement Interface
+- **Automaticaly Generate Base Repository Class**
+- **Support Nesting Service, Repository** Classpath (e.g. Master/User, Master/User/Employee, etc)
+- **Automaticaly Generate Model** (If the model didn't exists) when Create Repository Class
+- **Automaticaly Class and Interface Binding** (Only File inside Services or Repositories Directory)
 
 ## Contributors
 - [Ferdinalaxewall](https://github.com/ferdinalaxewall)
