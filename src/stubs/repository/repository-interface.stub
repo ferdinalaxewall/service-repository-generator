@@ -1,6 +1,6 @@
 <?php
 
-namespace App\{{ STUB_BASE_NAME }}\{{ STUB_MODEL_NAME }};
+namespace App\{{ STUB_BASE_NAME }}\{{ STUB_MODEL_NAMESPACE }};
 
 interface {{ STUB_MODEL_NAME }}Repository
 {

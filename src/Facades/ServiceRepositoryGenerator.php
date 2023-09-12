@@ -7,12 +7,12 @@ use Illuminate\Support\Facades\Facade;
 class ServiceRepositoryGenerator extends Facade
 {
     /**
-     * Get the registered name of the service-repository-generator static component.
+     * Get the registered name of the generator-handler static component.
      *
      * @return string
      */
     protected static function getFacadeAccessor(): string
     {
-        return 'service-repository-generator';
+        return 'generator-handler';
     }
 }

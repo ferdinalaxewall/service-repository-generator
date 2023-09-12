@@ -15,7 +15,7 @@ class ServiceGenerator extends FileGenerator
      */
     public function getStubPath(): string
     {
-        return __DIR__ . '/../stubs/service/'. ($this->isImplementClass ? 'service-implement-with-repository' : 'service-interface') .'.stub';
+        return __DIR__ . '/../stubs/service/'. ($this->isImplementClass ? ($this->isCustomGenerator ? 'service-implement' : 'service-implement-with-repository') : 'service-interface') .'.stub';
     }
 
     /**
@@ -25,11 +25,12 @@ class ServiceGenerator extends FileGenerator
      */
     public function getStubVariables(): array
     {
-        $className = $this->getSingularClassName($this->modelName);
+        $className = $this->getSingularClassName($this->className);
 
         return [
             'STUB_BASE_NAME'            => 'Services',
-            'STUB_MODEL_NAME'           => $className,
+            'STUB_MODEL_NAME'           => $this->className,
+            'STUB_MODEL_NAMESPACE'      => $this->classNamespace,
             'STUB_CAMELCASE_MODEL_NAME' => Str::camel($className),
         ];
     }
@@ -43,6 +44,6 @@ class ServiceGenerator extends FileGenerator
      */
     public function getSourceFilePath($isImplementClass = false): string
     {
-        return base_path(Define::SERVICE_PATH) .'/' .$this->getSingularClassName($this->modelName) . '/' .$this->getSingularClassName($this->modelName) .'Service'. ($isImplementClass ? 'Imp' : '') .'.php';
+        return base_path(Define::SERVICE_PATH) .'/' .$this->classPath . '/' .$this->className .'Service'. ($isImplementClass ? 'Imp' : '') .'.php';
     }
 }

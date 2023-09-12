@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use Illuminate\Support\Collection;
+use Illuminate\Database\Eloquent\Model;
 
 class BaseRepository
 {
@@ -31,9 +32,9 @@ class BaseRepository
      * @param string $sortColumn
      * @param string $sortBy
      *
-     * @return Collection|array
+     * @return Model|Collection|array
      */
-    public function findAll(string $sortColumn = 'created_at', string $sortBy = 'DESC'): Collection|array
+    public function findAll(string $sortColumn = 'created_at', string $sortBy = 'DESC'): Model|Collection|array
     {
         return $this->model->orderBy($sortColumn, $sortBy)->get();
     }
@@ -43,9 +44,9 @@ class BaseRepository
      *
      * @param int $id
      *
-     * @return Collection|array
+     * @return Model|Collection|array
      */
-    public function findOneById(int $id): Collection|array
+    public function findOneById(int $id): Model|Collection|array
     {
         return $this->model->where('id', $id)->first();
     }
@@ -55,9 +56,9 @@ class BaseRepository
      *
      * @param string $uuid
      *
-     * @return Collection|array
+     * @return Model|Collection|array
      */
-    public function findOneByUUID(string $uuid): Collection|array
+    public function findOneByUUID(string $uuid): Model|Collection|array
     {
         return $this->model->where('uuid', $uuid)->first();
     }
@@ -65,11 +66,11 @@ class BaseRepository
     /**
      * create eloquent model resources.
      *
-     * @param Collection|array $dto
+     * @param Model|Collection|array $dto
      *
-     * @return Collection|array
+     * @return Model|Collection|array
      */
-    public function create(Collection|array $dto): Collection|array
+    public function create(Model|Collection|array $dto): Model|Collection|array
     {
         return $this->model->create($dto);
     }
@@ -78,11 +79,11 @@ class BaseRepository
      * update the specified resource that related by unique key.
      *
      * @param int $id
-     * @param Collection|array $dto
+     * @param Model|Collection|array $dto
      *
      * @return bool
      */
-    public function updateById(int $id, Collection|array $dto): bool
+    public function updateById(int $id, Model|Collection|array $dto): bool
     {
         return $this->model->where('id', $id)->update($dto);
     }
@@ -91,11 +92,11 @@ class BaseRepository
      * update the specified resource that related by unique key.
      *
      * @param string $uuid
-     * @param Collection|array $dto
+     * @param Model|Collection|array $dto
      *
      * @return bool
      */
-    public function updateByUUID(string $uuid, Collection|array $dto): bool
+    public function updateByUUID(string $uuid, Model|Collection|array $dto): bool
     {
         return $this->model->where('uuid', $uuid)->update($dto);
     }

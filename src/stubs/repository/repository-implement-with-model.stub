@@ -1,19 +1,12 @@
 <?php
 
-namespace App\{{ STUB_BASE_NAME }}\{{ STUB_MODEL_NAME }};
+namespace App\{{ STUB_BASE_NAME }}\{{ STUB_MODEL_NAMESPACE }};
 
 use App\{{ STUB_BASE_NAME }}\BaseRepository;
-use App\Models\{{ STUB_MODEL_NAME }};
+use App\Models\{{ STUB_CUSTOM_CLASS_NAMESPACE }};
 
 class {{ STUB_MODEL_NAME }}RepositoryImp extends BaseRepository implements {{ STUB_MODEL_NAME }}Repository
 {
-    /**
-     * create the variable of repository eloquent model instance.
-     *
-     * @var \Illuminate\Database\Eloquent\Model
-     */
-    protected $model;
-
     /**
      * create a new repository eloquent model instance.
      *
@@ -21,8 +14,8 @@ class {{ STUB_MODEL_NAME }}RepositoryImp extends BaseRepository implements {{ ST
      *
      * @return void
      */
-    public function __construct({{ STUB_MODEL_NAME }} $model)
+    public function __construct({{ STUB_CUSTOM_CLASS_NAME }} $model)
     {
-        $this->model = $model;
+        parent::__construct($model);
     }
 }

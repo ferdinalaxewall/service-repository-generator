@@ -18,11 +18,32 @@ abstract class FileGenerator
     protected $files;
 
     /**
-     * create an initial variable for the name of model.
+     * create an initial variable for the name of class.
      *
-     * @var \Illuminate\Database\Eloquent\Model $modelName
+     * @var String $className
      */
-    protected $modelName;
+    protected $className;
+
+    /**
+     * create an initial variable for the path class.
+     *
+     * @var String $classPath
+     */
+    protected $classPath;
+
+    /**
+     * create an initial variable for the namespace of class.
+     *
+     * @var String $classNamespace
+     */
+    protected $classNamespace;
+
+    /**
+     * create an initial variable for the custom name of class.
+     *
+     * @var String $customClassPath
+     */
+    protected $customClassPath = null;
 
     /**
      * create an initial variable for check the truthy or falsy condition.
@@ -30,6 +51,13 @@ abstract class FileGenerator
      * @var Boolean
      */
     protected $isImplementClass;
+
+    /**
+     * create an initial variable for check the truthy or falsy custom (non service with repository) condition.
+     *
+     * @var Boolean
+     */
+    protected $isCustomGenerator;
 
     /**
      * create a new FileGenerator instance.
@@ -65,26 +93,33 @@ abstract class FileGenerator
     /**
      * create a base function to generate class files.
      *
-     * @param string $modelName
+     * @param string $classPath
+     * @param bool $isCustomGenerator
+     * @param bool $customClassPath
      *
      * @return void
      */
-    public function generate(string $modelName): void
+    public function generate(string $classPath, bool $isCustomGenerator = false, string $customClassPath = null): void
     {
-        if(file_exists(app_path('Models/'.$modelName.'.php'))){
-            $this->modelName = $modelName;
+        // Check if it's not custom generator and not existsing model
+        if(!$isCustomGenerator && !file_exists(app_path('Models/'.$classPath.'.php'))) throw new ModelNotFoundException("Oops: \"{$classPath}\" model not found!");
 
-            $baseServiceFilePath = $this->getSourceFilePath();
-            $this->makeDirectory(dirname($baseServiceFilePath));
+        // Set attribute "className", "classPath", "classNamespace", "customClassPath" and "isCustomGenerator" in this class instance
+        $this->classPath = $classPath;
+        $this->className = $this->getSingularClassName($this->getClassNameFromPath($classPath));
+        $this->classNamespace = $this->getClassNamespaceFromPath($classPath);
+        $this->customClassPath = $customClassPath ?? $classPath;
+        $this->isCustomGenerator = $isCustomGenerator;
 
-            // Create Interface File
-            $this->createFile($baseServiceFilePath, $this->getSourceFileContent());
+        // Create Directory
+        $baseServiceFilePath = $this->getSourceFilePath();
+        $this->makeDirectory(dirname($baseServiceFilePath));
 
-            // Create Implement Class File
-            $this->createFile($this->getSourceFilePath(true), $this->getSourceFileContent(true));
-        }else{
-            throw new ModelNotFoundException("Oops: \"{$modelName}\" model not found!");
-        }
+        // Create Interface File
+        $this->createFile($baseServiceFilePath, $this->getSourceFileContent());
+
+        // Create Implement Class File
+        $this->createFile($this->getSourceFilePath(true), $this->getSourceFileContent(true));
     }
 
     /**
@@ -150,6 +185,30 @@ abstract class FileGenerator
     public function getSingularClassName(string $name): string
     {
         return ucwords(Pluralizer::singular($name));
+    }
+
+    /**
+     * create a base function for replacing class path into namespace format.
+     *
+     * @param string $classPath
+     *
+     * @return string
+     */
+    public function getClassNamespaceFromPath(string $classPath): string
+    {
+        return str_replace('/', '\\', $classPath);
+    }
+
+    /**
+     * create a base function for get class name from class path.
+     *
+     * @param string $classPath
+     *
+     * @return string
+     */
+    public function getClassNameFromPath(string $classPath): string
+    {
+        return last(explode('/', $classPath));
     }
 
     /**
