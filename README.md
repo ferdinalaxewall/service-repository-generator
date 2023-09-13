@@ -1,5 +1,10 @@
-# Laravel Service Repository Generator
-Laravel Service Repository Generator is a Package for Generating Service and Repository Class based on Model or custom name
+<center>
+<h1>Laravel Service Repository Generator</h1>
+<p>Laravel Service Repository Generator is a Package for Generating Service and Repository Class based on Model or custom name</p>
+
+[![Latest Stable Version](http://poser.pugx.org/ferdinalaxewall/service-repository-generator/v)](https://packagist.org/packages/ferdinalaxewall/service-repository-generator) [![Total Downloads](http://poser.pugx.org/ferdinalaxewall/service-repository-generator/downloads)](https://packagist.org/packages/ferdinalaxewall/service-repository-generator) [![Daily Downloads](http://poser.pugx.org/ferdinalaxewall/service-repository-generator/d/daily)](https://packagist.org/packages/ferdinalaxewall/service-repository-generator) [![License](http://poser.pugx.org/ferdinalaxewall/service-repository-generator/license)](https://packagist.org/packages/ferdinalaxewall/service-repository-generator)
+
+</center>
 
 ## Installation Guide
 ```bash
