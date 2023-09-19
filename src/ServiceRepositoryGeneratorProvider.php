@@ -103,7 +103,8 @@ class ServiceRepositoryGeneratorProvider extends ServiceProvider
      */
     private function getLastDirectoryNameFromDirectoryPath(string $directoryPath): string
     {
-        return last(explode('/', $directoryPath));
+        $splittedDirectoryPath = explode('/', $directoryPath);
+        return $splittedDirectoryPath[count($splittedDirectoryPath) - 1];
     }
 
 }
