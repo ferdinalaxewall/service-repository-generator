@@ -3,7 +3,6 @@
 namespace Ferdinalaxewall\ServiceRepositoryGenerator;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Str;
 use Ferdinalaxewall\ServiceRepositoryGenerator\Handlers\GeneratorHandler;
 use Ferdinalaxewall\ServiceRepositoryGenerator\Functions\ServiceGenerator;
 use Ferdinalaxewall\ServiceRepositoryGenerator\Functions\RepositoryGenerator;
