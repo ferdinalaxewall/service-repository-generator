@@ -103,7 +103,7 @@ class ServiceRepositoryGeneratorProvider extends ServiceProvider
      */
     private function getLastDirectoryNameFromDirectoryPath(string $directoryPath): string
     {
-        if (strpos(strtolower(substr(php_uname('s'), 0, 3)), 'win')) {
+        if (strpos(strtolower(substr(php_uname('s'), 0, 3)), 'win') == 0) {
             $splittedDirectoryPath = explode("\\", $directoryPath);
         } else { $splittedDirectoryPath = explode('/', $directoryPath); }
         
