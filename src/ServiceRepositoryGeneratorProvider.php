@@ -3,6 +3,7 @@
 namespace Ferdinalaxewall\ServiceRepositoryGenerator;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Str;
 use Ferdinalaxewall\ServiceRepositoryGenerator\Handlers\GeneratorHandler;
 use Ferdinalaxewall\ServiceRepositoryGenerator\Functions\ServiceGenerator;
 use Ferdinalaxewall\ServiceRepositoryGenerator\Functions\RepositoryGenerator;
@@ -103,11 +104,17 @@ class ServiceRepositoryGeneratorProvider extends ServiceProvider
      */
     private function getLastDirectoryNameFromDirectoryPath(string $directoryPath): string
     {
-        if (strpos(strtolower(substr(php_uname('s'), 0, 3)), 'win') == 0) {
+        if (Str::of(strtolower(php_uname('s')))->contains('win')) {
             $splittedDirectoryPath = explode("\\", $directoryPath);
-        } else { $splittedDirectoryPath = explode('/', $directoryPath); }
-        
-        return $splittedDirectoryPath[count($splittedDirectoryPath) - 1];
+            $lastDirectoryPath = $splittedDirectoryPath[count($splittedDirectoryPath) - 1];
+            $explodeLastDirectoryPath = explode('/', $lastDirectoryPath);
+
+            return $explodeLastDirectoryPath[count($explodeLastDirectoryPath) - 1];
+        } else { 
+            $splittedDirectoryPath = explode('/', $directoryPath); 
+
+            return $splittedDirectoryPath[count($splittedDirectoryPath) - 1];
+        }
     }
 
 }
