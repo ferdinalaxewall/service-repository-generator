@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\{{ STUB_BASE_NAME }}\{{ STUB_MODEL_NAMESPACE }};
 
 class {{ STUB_MODEL_NAME }}ServiceImp implements {{ STUB_MODEL_NAME }}Service
