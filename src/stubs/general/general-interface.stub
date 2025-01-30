@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\{{ STUB_BASE_NAME }}\{{ STUB_MODEL_NAME }};
 
 interface {{ STUB_MODEL_NAME }}{{ STUB_BASE_TYPE }}
